@@ -1,14 +1,20 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, CheckSquare, TrendingUp, LogOut } from 'lucide-react';
 
 export default function Sidebar() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     const menuItems = [
         { path: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
         { path: '/admin/tasks', label: 'Tasks', icon: CheckSquare },
         { path: '/admin/transactions', label: 'Transactions', icon: TrendingUp },
     ];
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/login'); // SPA safe navigation
+    };
 
     return (
         <div className="w-72 bg-zinc-950 border-r border-zinc-800 h-screen flex flex-col fixed">
@@ -51,10 +57,7 @@ export default function Sidebar() {
             {/* Logout Button */}
             <div className="p-4 border-t border-zinc-800">
                 <button 
-                    onClick={() => {
-                        localStorage.clear();
-                        window.location.href = '/login';
-                    }}
+                    onClick={handleLogout}
                     className="w-full flex items-center gap-3 px-5 py-4 text-red-400 hover:bg-zinc-900 rounded-2xl transition-all hover:text-red-500"
                 >
                     <LogOut className="w-5 h-5" />
