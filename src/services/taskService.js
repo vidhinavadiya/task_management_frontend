@@ -20,6 +20,14 @@ class TaskService {
         const res = await taskApi.delete(id);
         return res.data;
     }
+    
+    async updateTaskStatus(id, status) {
+
+    const res = await taskApi.updateStatus(id, status);
+
+    return res.data;
+
+}
 }
 
 export default new TaskService();

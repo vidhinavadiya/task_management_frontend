@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Login from './pages/auth/Login';
-import Dashboard from './pages/Dashboard';
-import AdminLayout from './layouts/AdminLayout';
+import Projects from './pages/Projects';
 import Tasks from './pages/Tasks';
 import Transactions from './pages/Transactions';
+import AdminLayout from './layouts/AdminLayout';
 
 function App() {
   return (
@@ -12,14 +12,15 @@ function App() {
       <Routes>
         {/* Public Route */}
         <Route path="/login" element={<Login />} />
-        
-        {/* Default Redirect */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Protected Admin Routes with Layout */}
+        {/* Default Redirect after Login */}
+        <Route path="/" element={<Navigate to="/admin/projects" replace />} />
+
+        {/* Protected Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Navigate to="/admin/projects" replace />} />
+          
+          <Route path="projects" element={<Projects />} />
           <Route path="tasks" element={<Tasks />} />
           <Route path="transactions" element={<Transactions />} />
         </Route>

@@ -6,8 +6,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task = null }) {
         title: '',
         description: '',
         priority: 'Medium',
-        status: 'Pending',
-        dueDate: ''
+        status: 'Pending'
     });
 
     const [errors, setErrors] = useState({});
@@ -21,7 +20,6 @@ export default function TaskModal({ isOpen, onClose, onSave, task = null }) {
                     description: task.description || '',
                     priority: task.priority,
                     status: task.status,
-                    dueDate: task.dueDate ? task.dueDate.split('T')[0] : ''
                 });
             } else {
                 setFormData({
@@ -29,7 +27,6 @@ export default function TaskModal({ isOpen, onClose, onSave, task = null }) {
                     description: '',
                     priority: 'Medium',
                     status: 'Pending',
-                    dueDate: ''
                 });
             }
             setErrors({}); // Clear errors
@@ -76,6 +73,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task = null }) {
         setErrors({});
         onClose();
     };
+    
 
     if (!isOpen) return null;
 
@@ -155,17 +153,7 @@ export default function TaskModal({ isOpen, onClose, onSave, task = null }) {
                             {errors.status && <p className="text-red-500 text-sm mt-1">{errors.status}</p>}
                         </div>
                     </div>
-
-                    {/* Due Date */}
-                    <div>
-                        <label className="block text-zinc-400 mb-2">Due Date</label>
-                        <input
-                            type="date"
-                            value={formData.dueDate}
-                            onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
-                            className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-3 text-white focus:border-violet-500 outline-none"
-                        />
-                    </div>
+                    
 
                     <div className="flex gap-3 pt-4">
                         <button

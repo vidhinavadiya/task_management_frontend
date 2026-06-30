@@ -7,5 +7,10 @@ export const taskApi = {
 
     update: (id, data) => API.put(`/tasks/${id}`, data),
 
+    updateStatus: (id, status) =>
+        API.patch(`/tasks/${id}/status`, {
+            status,
+        }),
+
     delete: (id) => API.delete(`/tasks/${id}`),
 };

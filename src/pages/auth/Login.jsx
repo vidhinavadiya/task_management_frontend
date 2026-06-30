@@ -13,7 +13,7 @@ export default function Login() {
             const result = await authService.login(formData);
             
             if (result.success || result.token) {
-                navigate('/admin/dashboard');
+                navigate('/admin/projects');
             }
         } catch (err) {
             setError(err.message || "Invalid email or password");

@@ -6,7 +6,7 @@ export default function Sidebar() {
     const navigate = useNavigate();
 
     const menuItems = [
-        { path: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+        { path: '/admin/projects', label: 'projects', icon: LayoutDashboard },
         { path: '/admin/tasks', label: 'Tasks', icon: CheckSquare },
         { path: '/admin/transactions', label: 'Transactions', icon: TrendingUp },
     ];
