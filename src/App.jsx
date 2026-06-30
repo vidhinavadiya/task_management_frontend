@@ -7,6 +7,7 @@ import Transactions from './pages/Transactions';
 import AdminLayout from './layouts/AdminLayout';
 
 function App() {
+  const token = localStorage.getItem("adminToken");
   return (
     <Router>
       <Routes>
@@ -14,7 +15,14 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* Default Redirect after Login */}
-        <Route path="/" element={<Navigate to="/admin/projects" replace />} />
+        <Route
+          path="/"
+          element={
+            token
+              ? <Navigate to="/admin/projects" replace />
+              : <Navigate to="/login" replace />
+          }
+        />
 
         {/* Protected Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
