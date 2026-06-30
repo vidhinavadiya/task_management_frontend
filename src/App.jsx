@@ -14,7 +14,6 @@ function App() {
         {/* Public Route */}
         <Route path="/login" element={<Login />} />
 
-        {/* Default Redirect after Login */}
         <Route
           path="/"
           element={
