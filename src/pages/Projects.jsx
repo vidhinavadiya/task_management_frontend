@@ -149,111 +149,8 @@ export default function Projects() {
     return (
         <div className="space-y-6 p-6 md:p-10 bg-zinc-950 min-h-screen text-white">
             
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard title="Total Projects" value={totalProjects} icon={CheckSquare} color="violet" />
-                <StatCard title="Completed" value={stats.completedProjects || 0} icon={CheckSquare} color="emerald" />
-                <StatCard title="In Progress" value={stats.inProgressProjects || 0} icon={Users} color="blue" />
-                <StatCard title="Planning" value={stats.planningProjects || 0} icon={Users} color="amber" />
-            </div>
 
-            {/* Analytics Section */}
-            {/* Analytics + Recent Projects Grid */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <h3 className="text-2xl font-semibold mb-8">Project Analytics</h3>
-                    <div className="flex flex-col md:flex-row items-center gap-10">
-                        <div className="relative w-64 h-64">
-                            <ResponsiveContainer width="100%" height="100%">
-                                <PieChart>
-                                    <Pie
-                                        data={chartData}
-                                        cx="50%"
-                                        cy="50%"
-                                        innerRadius={85}
-                                        outerRadius={120}
-                                        dataKey="value"
-                                    >
-                                        {chartData.map((entry, index) => (
-                                            <Cell 
-                                                key={`cell-${index}`} 
-                                                fill={entry.color} 
-                                                onClick={() => handleStatusClick(entry.key)}
-                                                style={{ cursor: 'pointer' }}
-                                            />
-                                        ))}
-                                    </Pie>
-                                    <Tooltip />
-                                </PieChart>
-                            </ResponsiveContainer>
-                            <div className="absolute inset-0 flex items-center justify-center flex-col">
-                                <p className="text-zinc-400 text-sm">Total Projects</p>
-                                <p className="text-5xl font-bold text-white">{totalProjects}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex-1 space-y-4">
-                            <h4 className="font-semibold text-lg mb-4">Status Breakdown</h4>
-                            {chartData.map((item, index) => (
-                                <div 
-                                    key={index} 
-                                    onClick={() => handleStatusClick(item.key)}
-                                    className="flex items-center justify-between bg-zinc-800 hover:bg-zinc-700 rounded-2xl p-4 cursor-pointer transition-all"
-                                >
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
-                                        <span className="text-white">{item.name}</span>
-                                    </div>
-                                    <div className="font-semibold">{item.value}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Recent Projects */}
-                <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-xl font-semibold">
-                            {selectedStatus ? `${selectedStatus} Projects` : 'Recent Projects'}
-                        </h3>
-                        {selectedStatus && (
-                            <button 
-                                onClick={() => { 
-                                    setSelectedStatus(null); 
-                                    setStatusFilter(''); 
-                                    setPage(1); 
-                                }} 
-                                className="text-violet-400 text-sm hover:underline"
-                            >
-                                Show All
-                            </button>
-                        )}
-                    </div>
-
-                    <div className="max-h-96 overflow-y-auto scrollbar-hide space-y-3 pr-2">
-                        {projects.length === 0 ? (
-                            <p className="text-zinc-400 text-center py-10">No projects found</p>
-                        ) : (
-                            projects.slice(0, 8).map(project => (
-                                <div key={project.id} className="bg-zinc-800 rounded-2xl p-4 flex justify-between items-center">
-                                    <div>
-                                        <p className="font-medium">{project.projectName}</p>
-                                        <p className="text-sm text-zinc-500">{project.clientName}</p>
-                                    </div>
-                                    <span className={`text-xs px-3 py-1 rounded-full ${getStatusColor(project.status)}`}>
-                                        {project.status}
-                                    </span>
-                                </div>
-                            ))
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {/* ==================== TARGET BUDGET PROGRESS CHART ==================== */}
-{/* ==================== TARGET BUDGET PROGRESS ==================== */}
+            {/* ==================== TARGET BUDGET PROGRESS ==================== */}
 <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
     <div className="flex justify-between items-center mb-8">
         <h3 className="text-2xl font-semibold">Budget Target Progress</h3>
@@ -358,6 +255,109 @@ export default function Projects() {
 
     </div>
 </div>
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <StatCard title="Total Projects" value={totalProjects} icon={CheckSquare} color="violet" />
+                <StatCard title="Completed" value={stats.completedProjects || 0} icon={CheckSquare} color="emerald" />
+                <StatCard title="In Progress" value={stats.inProgressProjects || 0} icon={Users} color="blue" />
+                <StatCard title="Planning" value={stats.planningProjects || 0} icon={Users} color="amber" />
+            </div>
+
+            {/* Analytics Section */}
+            {/* Analytics + Recent Projects Grid */}
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                    <h3 className="text-2xl font-semibold mb-8">Project Analytics</h3>
+                    <div className="flex flex-col md:flex-row items-center gap-10">
+                        <div className="relative w-64 h-64">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <PieChart>
+                                    <Pie
+                                        data={chartData}
+                                        cx="50%"
+                                        cy="50%"
+                                        innerRadius={85}
+                                        outerRadius={120}
+                                        dataKey="value"
+                                    >
+                                        {chartData.map((entry, index) => (
+                                            <Cell 
+                                                key={`cell-${index}`} 
+                                                fill={entry.color} 
+                                                onClick={() => handleStatusClick(entry.key)}
+                                                style={{ cursor: 'pointer' }}
+                                            />
+                                        ))}
+                                    </Pie>
+                                    <Tooltip />
+                                </PieChart>
+                            </ResponsiveContainer>
+                            <div className="absolute inset-0 flex items-center justify-center flex-col">
+                                <p className="text-zinc-400 text-sm">Total Projects</p>
+                                <p className="text-5xl font-bold text-white">{totalProjects}</p>
+                            </div>
+                        </div>
+
+                        <div className="flex-1 space-y-4">
+                            <h4 className="font-semibold text-lg mb-4">Status Breakdown</h4>
+                            {chartData.map((item, index) => (
+                                <div 
+                                    key={index} 
+                                    onClick={() => handleStatusClick(item.key)}
+                                    className="flex items-center justify-between bg-zinc-800 hover:bg-zinc-700 rounded-2xl p-4 cursor-pointer transition-all"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
+                                        <span className="text-white">{item.name}</span>
+                                    </div>
+                                    <div className="font-semibold">{item.value}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Recent Projects */}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                    <div className="flex justify-between items-center mb-6">
+                        <h3 className="text-xl font-semibold">
+                            {selectedStatus ? `${selectedStatus} Projects` : 'Recent Projects'}
+                        </h3>
+                        {selectedStatus && (
+                            <button 
+                                onClick={() => { 
+                                    setSelectedStatus(null); 
+                                    setStatusFilter(''); 
+                                    setPage(1); 
+                                }} 
+                                className="text-violet-400 text-sm hover:underline"
+                            >
+                                Show All
+                            </button>
+                        )}
+                    </div>
+
+                    <div className="max-h-96 overflow-y-auto scrollbar-hide space-y-3 pr-2">
+                        {projects.length === 0 ? (
+                            <p className="text-zinc-400 text-center py-10">No projects found</p>
+                        ) : (
+                            projects.slice(0, 8).map(project => (
+                                <div key={project.id} className="bg-zinc-800 rounded-2xl p-4 flex justify-between items-center">
+                                    <div>
+                                        <p className="font-medium">{project.projectName}</p>
+                                        <p className="text-sm text-zinc-500">{project.clientName}</p>
+                                    </div>
+                                    <span className={`text-xs px-3 py-1 rounded-full ${getStatusColor(project.status)}`}>
+                                        {project.status}
+                                    </span>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
+            </div>
+
 
             {/* Header + Add Button */}
             <div className="flex justify-between items-center">
