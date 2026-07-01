@@ -153,7 +153,7 @@ const handleStatusChange = async (id, status) => {
     }, [page, search, statusFilter, priorityFilter]);
 
     if (loading) {
-        return <div className="text-center py-20 text-zinc-400">Loading Dashboard...</div>;
+        return <div className="text-center py-20 text-zinc-400">Loading task...</div>;
     }
 
     return (
