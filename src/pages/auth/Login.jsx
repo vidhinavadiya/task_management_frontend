@@ -28,7 +28,7 @@ export default function Login() {
             <div className="w-full max-w-lg relative z-10">
                 <div className="text-center mb-10">
                     <div className="mx-auto w-20 h-20 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-3xl flex items-center justify-center mb-6 shadow-2xl shadow-violet-500/50">
-                        <span className="text-4xl font-bold text-white tracking-tighter">AH</span>
+                        <span className="text-4xl font-bold text-white tracking-tighter">ND</span>
                     </div>
                     {/* <h1 className="text-5xl font-bold text-white tracking-tighter">AdminHub</h1>
                     <p className="text-zinc-400 mt-3 text-lg">Enterprise Admin Portal</p> */}

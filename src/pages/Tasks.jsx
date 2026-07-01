@@ -312,7 +312,7 @@ const handleStatusChange = async (id, status) => {
                             <th className="text-left p-6 text-zinc-400 font-medium">Task</th>
                             <th className="text-left p-6 text-zinc-400 font-medium">Priority</th>
                             <th className="text-left p-6 text-zinc-400 font-medium">Status</th>
-                            <th className="text-left p-6 text-zinc-400 font-medium">Due Date</th>
+                            <th className="text-left p-6 text-zinc-400 font-medium">Date</th>
                             <th className="text-center p-6 text-zinc-400 font-medium">Actions</th>
                         </tr>
                     </thead>

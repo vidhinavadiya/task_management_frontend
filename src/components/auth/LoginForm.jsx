@@ -20,7 +20,7 @@ export default function LoginForm({ onSubmit, error }) {
     return (
         <div className="bg-zinc-900/80 backdrop-blur-2xl border border-zinc-700 rounded-3xl p-10 shadow-2xl">
             <h2 className="text-3xl font-semibold text-white mb-2">Sign In</h2>
-            <p className="text-zinc-400 mb-8">Access your admin dashboard</p>
+            <p className="text-zinc-400 mb-8">Access your dhrumil dashboard</p>
 
             {error && (
                 <div className="bg-red-500/10 border border-red-500 text-red-400 px-4 py-3 rounded-2xl mb-6">

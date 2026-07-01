@@ -22,10 +22,10 @@ export default function Sidebar() {
             <div className="p-6 border-b border-zinc-800">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center">
-                        <span className="text-white font-bold text-2xl">AH</span>
+                        <span className="text-white font-bold text-2xl">ND</span>
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold text-white">AdminHub</h1>
+                        <h1 className="text-2xl font-bold text-white">Dhrumil</h1>
                         <p className="text-xs text-zinc-500">Management System</p>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ export default function Navbar() {
             
             <div className="flex items-center gap-4">
                 <div className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-2xl text-sm">
-                    Welcome, Admin
+                    Welcome, dhrumil
                 </div>
             </div>
         </div>
